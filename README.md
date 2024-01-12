@@ -8,3 +8,4 @@
 ![screencapture-127-0-0-1-8000-password-2024-01-12-22_54_21](https://github.com/DeveloperBackendPro/Django-Quiz/assets/77174755/de51fa5a-0904-4485-a8cd-42ddc295c139)
 ![screencapture-127-0-0-1-8000-student-2024-01-12-22_56_06](https://github.com/DeveloperBackendPro/Django-Quiz/assets/77174755/a85794ab-a916-4164-8d93-55edbc6bd951)
 ![screencapture-127-0-0-1-8000-student-2024-01-12-22_57_05](https://github.com/DeveloperBackendPro/Django-Quiz/assets/77174755/30bf131b-601a-47a1-bf09-9e3bd90eac61)
+![screencapture-127-0-0-1-8000-password-reset-2024-01-12-22_58_14](https://github.com/DeveloperBackendPro/Django-Quiz/assets/77174755/84632bc5-b0fc-433b-ac2c-723918c397dc)
