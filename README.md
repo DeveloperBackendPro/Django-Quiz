@@ -3,3 +3,4 @@
 ![screencapture-127-0-0-1-8000-verify-code-2024-01-12-21_51_20](https://github.com/DeveloperBackendPro/Django-Quiz/assets/77174755/ee4534a4-400e-4140-b89e-0767f8a2d11e)
 ![screencapture-127-0-0-1-8000-student-2024-01-12-22_46_26](https://github.com/DeveloperBackendPro/Django-Quiz/assets/77174755/9a6ef96d-d441-4733-beee-fd1ac22188e2)
 ![screencapture-127-0-0-1-8000-course-detail-HO6QFZUM-2024-01-12-22_47_50](https://github.com/DeveloperBackendPro/Django-Quiz/assets/77174755/1d2c7fba-b585-4b0d-800d-f5b3c56961d6)
+![screencapture-127-0-0-1-8000-ready-to-test-HO6QFZUM-2024-01-12-22_51_51](https://github.com/DeveloperBackendPro/Django-Quiz/assets/77174755/cd041d5d-6f58-489a-be18-d329147b8009)
