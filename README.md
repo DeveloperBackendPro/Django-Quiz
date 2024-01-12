@@ -11,4 +11,5 @@
 ![screencapture-127-0-0-1-8000-password-reset-2024-01-12-22_58_14](https://github.com/DeveloperBackendPro/Django-Quiz/assets/77174755/84632bc5-b0fc-433b-ac2c-723918c397dc)
 ![screencapture-127-0-0-1-8000-password-reset-done-2024-01-12-22_59_37](https://github.com/DeveloperBackendPro/Django-Quiz/assets/77174755/a3c92399-d3e8-42fd-b642-eeac30293700)
 ![screencapture-127-0-0-1-8000-password-reset-confirm-MQ-set-password-2024-01-12-23_00_29](https://github.com/DeveloperBackendPro/Django-Quiz/assets/77174755/715bdfad-064c-4346-8566-4950dd7fc4fd)
+![screencapture-127-0-0-1-8000-password-reset-complete-2024-01-12-23_01_19](https://github.com/DeveloperBackendPro/Django-Quiz/assets/77174755/10d9ef09-1abe-4801-872c-256594e1938f)
 
