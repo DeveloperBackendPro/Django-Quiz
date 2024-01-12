@@ -1,0 +1,31 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		<title>Online Test</title>
+		<link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico'%}">
+		<link rel="stylesheet" href="{% static 'coming-son/assets/css/bootstrap.min.css'%}">
+		<link rel="stylesheet" href="{% static 'coming-son/assets/plugins/fontawesome/css/fontawesome.min.css'%}">
+		<link rel="stylesheet" href="{% static 'coming-son/assets/plugins/fontawesome/css/all.min.css'%}">
+        <link rel="stylesheet" href="{% static 'coming-son/assets/plugins/feather/feather.css'%}">
+		<link rel="stylesheet" href="{% static 'coming-son/assets/css/style.css'%}">
+	</head>
+    <body class="error-page" style="background-color: black;" oncontextmenu="return false;">
+        <div class="container d-flex justify-content-center">
+			<img loading="lazy" src="{% static 'account/document/ai-2.gif'%}" alt="" class="img-fluid" style="object-fit: cover; width: 800px; height: 600px;">
+        </div>
+		<script src="{% static 'coming-son/assets/js/jquery-3.6.0.min.js'%}"></script>
+		<script src="{% static 'coming-son/assets/js/bootstrap.bundle.min.js'%}"></script>
+		<script src="{% static 'coming-son/assets/js/script.js'%}"></script>
+        <script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                window.location.href = '{% url 'update'%}';
+            }, 10000);
+        });
+    </script>
+	</body>
+</html>

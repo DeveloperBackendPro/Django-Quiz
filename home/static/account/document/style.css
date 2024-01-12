@@ -1,0 +1,28 @@
+.calendar {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+  color: white; }
+  .calendar .year, .calendar .month, .calendar .day {
+    width: 33.333%;
+    float: left; }
+    .calendar .year .previous p, .calendar .year .next p, .calendar .year .current p, .calendar .month .previous p, .calendar .month .next p, .calendar .month .current p, .calendar .day .previous p, .calendar .day .next p, .calendar .day .current p {
+      font-size: 20px;
+      margin: 0; }
+    .calendar .year .previous span, .calendar .year .next span, .calendar .year .current span, .calendar .month .previous span, .calendar .month .next span, .calendar .month .current span, .calendar .day .previous span, .calendar .day .next span, .calendar .day .current span {
+      font-size: 13px;
+      text-transform: uppercase; }
+    .calendar .year .previous, .calendar .year .next, .calendar .month .previous, .calendar .month .next, .calendar .day .previous, .calendar .day .next {
+      background-color: #170f2f;
+      padding: 1.2em 0; }
+      .calendar .year .previous p, .calendar .year .next p, .calendar .month .previous p, .calendar .month .next p, .calendar .day .previous p, .calendar .day .next p {
+        opacity: 1; }
+    .calendar .year .current, .calendar .month .current, .calendar .day .current {
+      padding: 2em 0; }
+  .calendar .year {
+    background-color: #221446; }
+  .calendar .month {
+    background-color: #221446; }
+  .calendar .day {
+    background-color: #221446; }

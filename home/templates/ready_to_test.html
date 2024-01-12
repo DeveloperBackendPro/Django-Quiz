@@ -1,0 +1,118 @@
+{% load static %}
+{% load i18n %}
+{% if info %}
+{% for info in info %}
+{% if info.status == 'Open' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico'%}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'google/css/bootstrap-grid.min.css'%}">
+    <link rel="stylesheet" href="{% static 'google/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'google/css/styles.css'%}">
+    <title>Online Test</title>
+</head>
+<body style="{% if ready %}background-color: whitesmoke;{% else %}background-color: white;{% endif %}">
+    <div class="card shadow" style="border-radius: 0; background-color: #170f2f;">
+        <div class="ml-3 mt-2" style="padding-left: 20px; height: 35px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="18" viewBox="0 0 54 14">
+                <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                    <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                    <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                    <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        <form>
+            {% if ready %}
+            <div class="header-section">
+                <div class="header-first" style="background-color: #170f2f;"></div>
+                <h1 class="text-center" style="margin-left: 26px; color: #170f2f;">{{ course_detail.title }}</h1>
+            </div>
+            {% endif %}
+            <div class="main-section">
+                {% if ready %}
+                {% for item in ready %}
+                {% if item.is_true == True %}
+                <div class="section-eight">
+                    <p>{{ item.question.question | safe }}</p>
+                    <hr>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio"  {% if item.true_answer == 'option1' %}checked="checked" {% else %}disabled{% endif %} style="margin-left: 5px;" autocomplete="off">
+                        <label class="form-check-label" style="margin-left: 30px; margin-top: 6px;">{{ item.question.op1 }}</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio"  {% if item.true_answer == 'option2' %}checked="checked" {% else %}disabled{% endif %} style="margin-left: 5px;" autocomplete="off">
+                        <label class="form-check-label" style="margin-left: 30px; margin-top: 6px;">{{ item.question.op2 }}</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio"  {% if item.true_answer == 'option3' %}checked="checked" {% else %}disabled{% endif %} style="margin-left: 5px;" autocomplete="off">
+                        <label class="form-check-label" style="margin-left: 30px; margin-top: 6px;">{{ item.question.op3 }}</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio"  {% if item.true_answer == 'option4' %}checked="checked" {% else %}disabled{% endif %} style="margin-left: 5px;" autocomplete="off">
+                        <label class="form-check-label" style="margin-left: 30px; margin-top: 6px;">{{ item.question.op4 }}</label>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% for item in ready %}
+                {% if item.is_true == False %}
+                    <div class="section-eight" style="background-color: #f0bcbc;">
+                    <p>{{ item.question.question | safe }}</p>
+                    <hr>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio"  {% if item.true_answer == 'option1' %}checked="checked" {% else %}disabled{% endif %} style="margin-left: 5px;" autocomplete="off">
+                        <label class="form-check-label" style="margin-left: 30px; margin-top: 6px;">{{ item.question.op1 }}</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio"  {% if item.true_answer == 'option2' %}checked="checked" {% else %}disabled{% endif %} style="margin-left: 5px;" autocomplete="off">
+                        <label class="form-check-label" style="margin-left: 30px; margin-top: 6px;">{{ item.question.op2 }}</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio"  {% if item.true_answer == 'option3' %}checked="checked" {% else %}disabled{% endif %} style="margin-left: 5px;" autocomplete="off">
+                        <label class="form-check-label" style="margin-left: 30px; margin-top: 6px;">{{ item.question.op3 }}</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio"  {% if item.true_answer == 'option4' %}checked="checked" {% else %}disabled{% endif %} style="margin-left: 5px;" autocomplete="off">
+                        <label class="form-check-label" style="margin-left: 30px; margin-top: 6px;">{{ item.question.op4 }}</label>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% else %}
+                <div style="background-color: white; padding-top: 30px; padding-bottom: 30px;">
+                    <img class="img-fluid" src="{% static 'account/document/document-5.gif'%}" loading="lazy" style="width: 100%; height: 410px; object-fit: contain;">
+                </div>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+    <div class="card shadow" style="border-radius: 0; background-color: #170f2f; padding-bottom: 2px;">
+        <div class="ml-3 mt-2 d-flex justify-content-end" style="padding-right: 20px; height: 35px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="18" viewBox="0 0 54 14">
+                <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                    <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                    <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                    <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'google/js/bootstrap.min.js'%}"></script>
+</body>
+</html>
+{% endif %}
+{% if info.status == 'Close' %}
+{% include 'coming-son.html'%}
+{% endif %}
+{% endfor %}
+{% endif %}

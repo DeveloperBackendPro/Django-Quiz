@@ -1,0 +1,43 @@
+{% if page.has_other_pages %}
+<div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
+<p class="mb-0 text-center text-sm-start text-dark">Showing {{ page.number }} to of {{ page.paginator.num_pages }} entries</p>
+<nav class="d-flex justify-content-center mb-0" aria-label="navigation">
+    <ul class="pagination pagination-sm pagination-dark-soft d-inline-block d-md-flex rounded mb-0">
+        {% if page.has_previous %}
+        <li class="page-item mb-0" style="padding-left: 5px;">
+            <a class="page-link" href="?page={{ page.previous_page_number }}">
+                <i class="fas fa-angle-left"></i>
+            </a>
+        </li>
+        {% endif %}
+        {% for i in page.paginator.page_range %}
+        {% if page.number == i %}
+        <li class="page-item mb-0 nmadur active" style="padding-left: 5px;"><a class="page-link" href="#">{{ i }}</a></li>
+        {% else %}
+        <li class="page-item mb-0" style="padding-left: 5px;"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if page.has_next %}
+        <li class="page-item mb-0" style="padding-left: 5px;">
+            <a class="page-link" href="?page={{ page.next_page_number }}">
+                <i class="fas fa-angle-right"></i>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+</div>
+{% endif %}
+<style>
+    .page-link.active, .active > .page-link  {
+        background-color: #170f2f;
+        border-color: #170f2f;
+    }
+    .page-link:hover{
+        background-color: #170f2f;
+        border-color: #170f2f;
+    }
+    .page-link{
+        color: black;
+    }
+</style>

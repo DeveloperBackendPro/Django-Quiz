@@ -1,0 +1,120 @@
+{% load static %}
+{% load i18n %}
+{% if info %}
+{% for info in info %}
+{% if info.status == 'Open' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico'%}">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link id="rtl-link" rel="stylesheet" type="text/css" href="{% static 'otp/assets/css/vendors/bootstrap.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'otp/assets/css/vendors/font-awesome.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'otp/assets/css/vendors/feather-icon.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'otp/assets/css/vendors/slick/slick.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'otp/assets/css/vendors/slick/slick-theme.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'otp/assets/css/bulk-style.css'%}">
+    <link id="color-link" rel="stylesheet" type="text/css" href="{% static 'otp/assets/css/style.css'%}">
+    <title>OTP</title>
+</head>
+<body style="background-color: #28195e">
+    <div class="card shadow" style="border-radius: 0; background-color: #170f2f;">
+        <div class="ml-3 mt-2" style="padding-left: 20px; height: 35px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="18" viewBox="0 0 54 14">
+                <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                    <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                    <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                    <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <section class="log-in-section otp-section section-b-space" style="padding-top: 100px; height: auto;">
+        <div class="container-xxl">
+            <div class="row">
+                <div class="col-xxl-6 col-xl-5 col-lg-6 d-lg-block d-none ms-auto">
+                    <div class="image-contain">
+                        <img src="{% static 'otp/assets/images/inner-page/otp.png'%}" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="col-xxl-4 col-xl-5 col-lg-6 col-sm-8 mx-auto confirm-code">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                        <div class="log-in-box">
+                            <div class="log-in-title">
+                                <h3 class="text-title">{% trans "Please enter the one time password to verify your account"%}</h3>
+                                <p class="text-content">{% trans "A code has been sent to"%} <span><strong>{{ user.email }}</strong></span></p>
+                            </div>
+                            <form method="post">
+                            {% csrf_token %}
+                            <div class="inputs d-flex flex-row justify-content-center">
+                                <input class="text-center form-control rounded" type="text" id="firstText" maxlength="1" placeholder="0">
+                                <input class="text-center form-control rounded" type="text" id="secondText" maxlength="1" placeholder="0">
+                                <input class="text-center form-control rounded" type="text" id="thirdText" maxlength="1" placeholder="0">
+                                <input class="text-center form-control rounded" type="text" id="fourthText" maxlength="1" placeholder="0">
+                                <input class="text-center form-control rounded" type="text" id="fifthText" maxlength="1" placeholder="0">
+                                <input class="text-center form-control rounded" type="text" id="sixthText" maxlength="1" placeholder="0">
+                                <input class="text-center form-control rounded" type="text" id="target" name="number" hidden>
+                            </div>
+                            <div class="send-box pt-4">
+                                <h5><a href="{% url 'password_reset'%}" class="theme-color fw-bold">{% trans "Forgot your password ?"%}</a></h5>
+                            </div>
+                            <button id="submit" class="btn btn-animation w-100 mt-3" type="submit">{% trans "Submit"%}</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="card footer-footer shadow" style="border-radius: 0; background-color: #170f2f;">
+        <div class="ml-3 mt-2 d-flex justify-content-end" style="padding-right: 20px; height: 35px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="18" viewBox="0 0 54 14">
+                <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                    <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                    <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                    <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <style>
+        @media only screen and (max-width: 1200px) {
+           .footer-footer {
+              margin-top: 130px;}
+        }
+        @media only screen and (max-width: 992px) {
+            .confirm-code {
+               padding-top: 130px;
+           }
+        }
+    </style>
+    <script src="{% static 'otp/assets/js/jquery-3.6.0.min.js'%}"></script>
+    <script src="{% static 'otp/assets/js/bootstrap/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'otp/assets/js/bootstrap/popper.min.js'%}"></script>
+    <script src="{% static 'otp/assets/js/otp.js'%}"></script>
+    <script src="{% static 'otp/assets/js/slick/slick.js'%}"></script>
+    <script src="{% static 'otp/assets/js/slick/slick-animation.min.js'%}"></script>
+    <script src="{% static 'otp/assets/js/slick/custom_slick.js'%}"></script>
+    <script src="{% static 'otp/assets/js/feather/feather.min.js'%}"></script>
+    <script src="{% static 'otp/assets/js/feather/feather-icon.js'%}"></script>
+    <script src="{% static 'otp/assets/js/lazysizes.min.js'%}"></script>
+    <script src="{% static 'otp/assets/js/script.js'%}"></script>
+    <script>
+        $('#submit').click(function () {
+            var source = $('#firstText').val() + $('#secondText').val() + $('#thirdText').val() + $('#fourthText').val() + $('#fifthText').val() + $('#sixthText').val();
+            $('#target').val(source);
+        });
+    </script>
+</body>
+</html>
+{% endif %}
+{% if info.status == 'Close' %}
+{% include 'coming-son.html'%}
+{% endif %}
+{% endfor %}
+{% endif %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Проверьте код входа</title>
+</head>
+<body style="background-image: linear-gradient(142deg,#9861c2, #5cc0de); font-family: Lato, sans-serif; height: 100%; display: table; overflow: hidden; margin: 0 auto; box-sizing: border-box;">
+  <div class="container" style="background-color: rgba(255, 255, 255, 0.3);
+   border-radius: 10px;padding: 30px; width: 100%; text-align: center; box-sizing: border-box;">
+    <h2 style="color: #500050;">Проверьте код входа</h2>
+    <p style="color: #500050;">
+      Похоже, вы пытаетесь войти. В качестве дополнительной меры безопасности <br> введите 6-значный код, отправленный на ваш адрес электронной почты
+    </p>
+    <div class="code-container" style="flex-wrap: wrap; display: table; margin: 40px auto; box-sizing: border-box;">
+      <input type="number" class="code" value="{{ code_user|slice:":1" }}"
+             placeholder="0" min="0" max="1" disabled
+             style="color: #500050; background-color: rgba(255, 255, 255, 0.6);
+             border-radius: 10px; border: 1px solid #9861c2; font-size: 30px; font-family: Lato, sans-serif;
+             width: 75px; height: 80px; margin: 10px; padding-left: 27px; font-weight: 370; box-sizing: border-box;">
+      <input type="number" class="code" value="{{ code_user|slice:"1:2" }}"
+             placeholder="0" min="0" max="1" disabled
+             style="color: #500050; background-color: rgba(255, 255, 255, 0.6);
+             border-radius: 10px; border: 1px solid #9861c2; font-size: 30px; font-family: Lato, sans-serif;
+             width: 75px; height: 80px; margin: 10px; padding-left: 27px; font-weight: 370; box-sizing: border-box;">
+      <input type="number" class="code" value="{{ code_user|slice:"2:3" }}"
+             placeholder="0" min="0" max="1" disabled
+             style="color: #500050; background-color: rgba(255, 255, 255, 0.6);
+             border-radius: 10px; border: 1px solid #9861c2; font-size: 30px; font-family: Lato, sans-serif;
+             width: 75px; height: 80px; margin: 10px; padding-left: 25px; font-weight: 370; box-sizing: border-box;">
+      <input type="number" class="code" value="{{ code_user|slice:"3:4" }}"
+             placeholder="0" min="0" max="1" disabled
+             style="color: #500050; background-color: rgba(255, 255, 255, 0.6);
+             border-radius: 10px; border: 1px solid #9861c2; font-size: 30px; font-family: Lato, sans-serif;
+             width: 75px; height: 80px; margin: 10px; padding-left: 27px; font-weight: 370; box-sizing: border-box;">
+      <input type="number" class="code" value="{{ code_user|slice:"4:5" }}"
+             placeholder="0" min="0" max="1" disabled
+             style="color: #500050; background-color: rgba(255, 255, 255, 0.6);
+             border-radius: 10px; border: 1px solid #9861c2; font-size: 30px; font-family: Lato, sans-serif;
+             width: 75px; height: 80px; margin: 10px; padding-left: 27px; font-weight: 370; box-sizing: border-box;">
+      <input type="number" class="code" value="{{ code_user|slice:"5:6" }}"
+             placeholder="0" min="0" max="1" disabled
+             style="color: #500050; background-color: rgba(255, 255, 255, 0.6);
+             border-radius: 10px; border: 1px solid #9861c2; font-size: 30px; font-family: Lato, sans-serif;
+             width: 75px; height: 80px; margin: 10px; padding-left: 27px; font-weight: 370; box-sizing: border-box;">
+    </div>
+    <small class="info" style="box-sizing: border-box;">
+        <a href="http://127.0.0.1:8000/password_reset/" style="text-decoration: none; font-size: 16px; color: #500050;">Забыли пароль или логин?</a>
+    </small>
+  </div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% if info %}
+{% for info in info %}
+{% if info.status == 'Open' %}
+<!doctype html>
+<html class="no-js is_dark" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/animate.min.css'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/aos.min.css'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/icofont.min.css'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/slick.css'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/swiper-bundle.min.css'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/style.css'%}">
+    <title>Online Quiz</title>
+</head>
+<body class="body__wrapper">
+    <div class="card shadow" style="border-radius: 0; background-color: #170f2f">
+        <div class="ml-3 mt-2" style="padding-left: 20px; height: 35px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="18" viewBox="0 0 54 14">
+                <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                    <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                    <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                    <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <main class="main_wrapper overflow-hidden">
+        <div class="loginarea sp_top_100 sp_bottom_100">
+            <div class="container">
+                <div class="row">
+                    <div class="tab-content tab__content__wrapper" id="myTabContent" data-aos="fade-up">
+                        <div class="tab-pane fade active show" id="projects__one" role="tabpanel" aria-labelledby="projects__one">
+                            <div class="col-xl-8 offset-md-2">
+                                <div class="loginarea__wraper">
+                                    <form autocomplete="off" method="post">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="login__form">
+                                                    <label class="form__label">{% trans "Username"%}</label>
+                                                    {{ form.username | as_crispy_field  }}
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="login__form">
+                                                    <label class="form__label">{% trans "Email"%}</label>
+                                                    {{ form.email | as_crispy_field  }}
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="login__form">
+                                                    <label class="form__label">{% trans "Group"%}</label>
+                                                    {{ form.group | as_crispy_field  }}
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="login__form">
+                                                    <label class="form__label">{% trans "Full Name"%}</label>
+                                                    {{ form.full_name | as_crispy_field  }}
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="login__form">
+                                                    <label class="form__label">{% trans "Password"%}</label>
+                                                    {{ form.password1 | as_crispy_field  }}
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="login__form">
+                                                    <label class="form__label">{% trans "Confirm Password"%}</label>
+                                                    {{ form.password2 | as_crispy_field  }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-start login__form__link" style="padding-top: 8px;">
+                                            <a href="{% url 'password_reset'%}">{% trans "Forgot your password ?"%}</a>
+                                        </div>
+                                         <div class="login__button">
+                                            <button type="submit" class="default__button" href="#" style="width: 100%;">{% trans "Sign up"%}</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" login__shape__img educationarea__shape_image">
+                    <img loading="lazy"  class="hero__shape hero__shape__1" src="{% static 'Temp/img/education/hero_shape2.png'%}" alt="Shape">
+                    <img loading="lazy"  class="hero__shape hero__shape__2" src="{% static 'Temp/img/education/hero_shape3.png'%}" alt="Shape">
+                    <img loading="lazy"  class="hero__shape hero__shape__3" src="{% static 'Temp/img/education/hero_shape4.png'%}" alt="Shape">
+                    <img loading="lazy"  class="hero__shape hero__shape__4" src="{% static 'Temp/img/education/hero_shape5.png'%}" alt="Shape">
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="card shadow" style="border-radius: 0; background-color: #170f2f; padding-top: 3px;">
+        <div class="ml-3 mt-2 d-flex justify-content-end" style="padding-right: 20px; height: 35px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="18" viewBox="0 0 54 14">
+                <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                    <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                    <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                    <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <style>
+    </style>
+    <script src="{% static 'Temp/js/vendor/modernizr-3.5.0.min.js'%}"></script>
+    <script src="{% static 'Temp/js/vendor/jquery-3.6.0.min.js'%}"></script>
+    <script src="{% static 'Temp/js/popper.min.js'%}"></script>
+    <script src="{% static 'Temp/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'Temp/js/isotope.pkgd.min.js'%}"></script>
+    <script src="{% static 'Temp/js/slick.min.js'%}"></script>
+    <script src="{% static 'Temp/js/jquery.meanmenu.min.js'%}"></script>
+    <script src="{% static 'Temp/js/ajax-form.js'%}"></script>
+    <script src="{% static 'Temp/js/wow.min.js'%}"></script>
+    <script src="{% static 'Temp/js/jquery.scrollUp.min.js'%}"></script>
+    <script src="{% static 'Temp/js/imagesloaded.pkgd.min.js'%}"></script>
+    <script src="{% static 'Temp/js/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{% static 'Temp/js/waypoints.min.js'%}"></script>
+    <script src="{% static 'Temp/js/jquery.counterup.min.js'%}"></script>
+    <script src="{% static 'Temp/js/plugins.js'%}"></script>
+    <script src="{% static 'Temp/js/swiper-bundle.min.js'%}"></script>
+    <script src="{% static 'Temp/js/main.js'%}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elements = document.querySelectorAll('.common__login__input');
+            elements.forEach(function (element) {
+                element.classList.remove('form-control');
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            var elements = document.querySelectorAll('.passwordinput');
+            elements.forEach(function (element) {
+                element.classList.remove('form-control');
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.requiredField').remove();
+            $('#hint_id_username').remove();
+            $('#div_id_email label').remove();
+            $('#div_id_password2 #hint_id_password2').remove();
+            $('#id_password1, #id_password2').addClass('common__login__input');
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#error_1_id_username').text('{% trans "A user with that username already exists"%}');
+        });
+        $(document).ready(function () {
+            $('#error_1_id_email').text('{% trans "An user with this email already exists !"%}');
+        });
+    </script>
+</body>
+</html>
+{% endif %}
+{% if info.status == 'Close' %}
+{% include 'coming-son.html'%}
+{% endif %}
+{% endfor %}
+{% endif %}

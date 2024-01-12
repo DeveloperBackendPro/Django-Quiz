@@ -1,0 +1,35 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		<title>Online Test</title>
+		<link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico'%}">
+		<link rel="stylesheet" href="{% static 'coming-son/assets/css/bootstrap.min.css'%}">
+		<link rel="stylesheet" href="{% static 'coming-son/assets/plugins/fontawesome/css/fontawesome.min.css'%}">
+		<link rel="stylesheet" href="{% static 'coming-son/assets/plugins/fontawesome/css/all.min.css'%}">
+        <link rel="stylesheet" href="{% static 'coming-son/assets/plugins/feather/feather.css'%}">
+		<link rel="stylesheet" href="{% static 'coming-son/assets/css/style.css'%}">
+	</head>
+    <body class="error-page" style="background-color: #28195e;" oncontextmenu="return false;">
+        <div class="main-wrapper">
+			<div class="error-box">
+				<div class="error-logo">
+					<a href="#" style="text-decoration: none;">
+                        <h1 style="font-family: Georgia, serif; color: paleturquoise;">Online Test</h1>
+					</a>
+				</div>
+				<div class="error-box-img">
+					<img loading="lazy" src="{% static 'coming-son/assets/img/error-01.png'%}" alt="" class="img-fluid" >
+				</div>
+				<h3 class="h2 mb-3" style="color: paleturquoise;">{% trans "Oh No! Error 404"%}</h3>
+				<p class="h4 font-weight-normal" style="color: paleturquoise;">{% trans "This page you requested counld not found. May the force be with you!"%}</p>
+			</div>
+        </div>
+		<script src="{% static 'coming-son/assets/js/jquery-3.6.0.min.js'%}"></script>
+		<script src="{% static 'coming-son/assets/js/bootstrap.bundle.min.js'%}"></script>
+		<script src="{% static 'coming-son/assets/js/script.js'%}"></script>
+	</body>
+</html>

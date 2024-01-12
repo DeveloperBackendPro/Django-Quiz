@@ -1,0 +1,156 @@
+{% load static %}
+{% load i18n %}
+{% if info %}
+{% for info in info %}
+{% if info.status == 'Open' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico'%}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'google/css/bootstrap-grid.min.css'%}">
+    <link rel="stylesheet" href="{% static 'google/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'google/css/styles.css'%}">
+    <title>Online Test</title>
+</head>
+<body style="{% if quiz or ready %}{% if quiz %}background-color: whitesmoke;{% endif %}{% if ready %}background-color: white;{% endif %}{% else %} background-color: white; {% endif %}">
+<div class="card shadow" style="border-radius: 0; background-color: #170f2f;">
+    <div class="ml-3 mt-2" style="padding-left: 20px; height: 35px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="18" viewBox="0 0 54 14">
+            <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+            </g>
+        </svg>
+    </div>
+</div>
+    <div class="main-wrapper">
+        {% if ready %}
+            <div style="background-color: white; padding-top: 30px; padding-bottom: 30px;">
+                <img class="img-fluid" src="{% static 'account/document/document-5.gif'%}" loading="lazy" style="width: 100%; height: 410px; object-fit: contain;">
+            </div>
+        {% else %}
+        {% if quiz %}
+        <form action="{% url 'post_exam_two' course.id %}" autocomplete="off" method="post">
+            {% csrf_token %}
+            <div class="header-section">
+                <div class="header-first" style="background-color: #170f2f;"></div>
+                <h1 style="margin-left: 26px; color: #170f2f;">{{ course.title }}</h1>
+                <p style="color: #4d1c9f;">{% trans "Answer all questions on time"%}
+                    <span style="color: #4d1c9f; margin-left: 5px;">{% trans "Total questions"%} <span style="color: #673ab7;">{{ course.count_quiz }}</span> </span>  <span style="color: #673ab7;"> {% trans "End Time" %} {{ course.time|time:"H:i:s" }}</span>  <span style="color: #673ab7;">{% trans "Current Time"%}</span> <span id="countdown" style="color: #673ab7;"></span>
+                </p>
+            </div>
+            <div class="main-section">
+                {% for item in quiz %}
+                <div class="section-eight">
+                    <p>{{ item.question | safe }}</p>
+                    <hr>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{ item.question }}" value="option1" style="margin-left: 5px;" id="{{ item.id }}" autocomplete="off">
+                        <label class="form-check-label" for="{{ item.id }}" style="margin-left: 30px; margin-top: 6px;">{{ item.op1 }}</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{ item.question }}" value="option2" style="margin-left: 5px;" id="{{ item.id }}" autocomplete="off">
+                        <label class="form-check-label" for="{{ item.id }}" style="margin-left: 30px; margin-top: 6px;">{{ item.op2 }}</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{ item.question }}" value="option3" style="margin-left: 5px;" id="{{ item.id }}" autocomplete="off">
+                        <label class="form-check-label" for="{{ item.id }}" style="margin-left: 30px; margin-top: 6px;">{{ item.op3 }}</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{ item.question }}" value="option4" style="margin-left: 5px;" id="{{ item.id }}" autocomplete="off">
+                        <label class="form-check-label" for="{{ item.id }}" style="margin-left: 30px; margin-top: 6px;">{{ item.op4 }}</label>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="footer-section">
+                <div class="content row d-flex mb-3">
+                    <div class="col-sm-6  order-sm-1">
+                        <button id="automaticButton" type="submit" class="btn" style="background-color: #170f2f; color: white;">{% trans "Submit"%}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        {% else %}
+            <div style="background-color: white; padding-top: 30px; padding-bottom: 30px;">
+                <img class="img-fluid" src="{% static 'account/document/document-5.gif'%}" loading="lazy" style="width: 100%; height: 410px; object-fit: contain;">
+            </div>
+        {% endif %}
+        {% endif %}
+    </div>
+    <div class="card shadow" style="border-radius: 0; background-color: #170f2f; padding-bottom: 2px;">
+        <div class="ml-3 mt-2 d-flex justify-content-end" style="padding-right: 20px; height: 35px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="18" viewBox="0 0 54 14">
+                <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                    <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                    <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                    <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'google/js/bootstrap.min.js'%}"></script>
+    <script>
+        const status = ['{{ course.status }}'];
+        if (status.includes('Close')) {
+            window.location.href = '{% url 'student'%}';
+        }
+    </script>
+    <script>
+    const objectsTime = ['{{ course.time|time:"H:i:s" }}',];
+    function formatTimeValue(value) {
+        return value < 10 ? '0' + value : value;
+    }
+    function checkAndReload() {
+        var currentTime = new Date();
+        var hours = formatTimeValue(currentTime.getHours());
+        var minutes = formatTimeValue(currentTime.getMinutes());
+        var seconds = formatTimeValue(currentTime.getSeconds());
+        var currentTimeStr = hours + ':' + minutes + ':' + seconds;
+        if (objectsTime.includes(currentTimeStr)) {
+             $('#automaticButton').click();
+        }
+    }
+    setInterval(checkAndReload, 1000);
+    </script>
+    <script>
+    var targetTimeStr = '{{ course.time|time:"H:i:s" }}';
+    function updateCountdown() {
+      var currentTime = new Date();
+      var hours = currentTime.getHours();
+      var minutes = currentTime.getMinutes();
+      var seconds = currentTime.getSeconds();
+      var currentTimeStr = hours + ':' + minutes + ':' + seconds;
+      var targetTime = new Date('2000-01-01 ' + targetTimeStr);
+      var currentTimeObj = new Date('2000-01-01 ' + currentTimeStr);
+      var timeDifference = targetTime - currentTimeObj;
+      if (timeDifference <= 0) {
+        $('#countdown').text('00:00:00');
+      } else {
+        var remainingHours = Math.floor(timeDifference / (1000 * 60 * 60));
+        var remainingMinutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        var remainingSeconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+        $('#countdown').text(pad(remainingHours) + ':' + pad(remainingMinutes) + ':' + pad(remainingSeconds));
+      }
+    }
+    updateCountdown();
+    var countdownInterval = setInterval(updateCountdown, 1000);
+    function pad(number) {
+      return (number < 10) ? '0' + number : number;
+    }
+    </script>
+</body>
+</html>
+{% endif %}
+{% if info.status == 'Close' %}
+{% include 'coming-son.html'%}
+{% endif %}
+{% endfor %}
+{% endif %}

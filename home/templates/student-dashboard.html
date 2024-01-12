@@ -1,0 +1,238 @@
+{% load static %}
+{% load i18n %}
+{% if info %}
+{% for info in info %}
+{% if info.status == 'Open' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Online Test</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico'%}">
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&amp;family=Roboto:wght@400;500;700&amp;display=swap">
+	<link rel="stylesheet" type="text/css" href="{% static 'account/assets/vendor/font-awesome/css/all.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'account/assets/vendor/bootstrap-icons/bootstrap-icons.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'account/assets/vendor/choices/css/choices.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'account/assets/vendor/aos/aos.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'account/assets/css/style.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/document/style.css'%}">
+</head>
+<body>
+<main style="background-color: whitesmoke;">
+<div class="card shadow" style="border-radius: 0; background-color: #170f2f;">
+    <div class="ml-3 mt-2" style="padding-left: 20px; height: 35px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="18" viewBox="0 0 54 14">
+            <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+            </g>
+        </svg>
+    </div>
+</div>
+<br>
+<section class="pt-0" style="padding-bottom: 18px;">
+	<div class="container-xxl">
+		<div class="row">
+			<div class="col-xl-3">
+                <div class="box">
+                    <div class="calendar" style="border-top-right-radius: 7px; border-top-left-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; padding-bottom: 5px;">
+                        <div class="year">
+                            <div class="current"><p id="currentYear"></p><span>{% trans 'Year'%}</span></div>
+                            <div class="previous" style="border-bottom: 1px solid #24292d;"><p id="current-year">0</p></div>
+                            <div class="next"><p id="hours">0</p></div>
+                        </div>
+                        <div class="month">
+                            <div class="current"><p id="currentMonth"></p><span>{% trans 'Month'%}</span></div>
+                            <div class="previous" style="border-bottom: 1px solid #24292d;"><p id="current-month">0</p></div>
+                            <div class="next"><p id="minutes">0</p></div>
+                        </div>
+                        <div class="day">
+                            <div class="current"><p id="currentDay"></p><span>{% trans 'Day'%}</span></div>
+                            <div class="previous" style="border-bottom: 1px solid #24292d;"><p id="current-day">0</p></div>
+                            <div class="next"><p id="seconds">0</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%; margin-top: 20px; background-color: #170f2f; color: white;">
+                        {% translate "Language" %}
+                    </button>
+                    <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenu2" style="width: 100%; background: #170f2f;">
+                        <li>
+                            <a href="http://127.0.0.1:8000/en/student/"><button class="dropdown-item" type="button" style="color: white;">English</button></a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1:8000/ru/student/"><button class="dropdown-item" type="button" style="color: white;">Russia</button></a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1:8000/student/"><button class="dropdown-item" type="button" style="color: white;">Uzbek</button></a>
+                        </li>
+                    </ul>
+                </div>
+                <div style="width: 100%; height: 17px;"></div>
+				<div>
+					<div>
+						<div class="border rounded-3 p-3 w-100" style="background-color: #170f2f;">
+							<div class="list-group list-group-dark list-group-borderless collapse-list">
+								<a class="list-group-item active" href="{% url 'student'%}"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>{% trans "Dashboard"%}</a>
+								<a class="list-group-item" href="{% url 'update'%}"><i class="bi bi-card-checklist fa-fw me-2"></i>{% trans "Update"%}</a>
+								<a class="list-group-item" href="{% url 'password'%}"><i class="bi bi-key fa-fw me-2"></i>{% trans "Change-Password"%}</a>
+                                <a class="list-group-item" href="{% url 'logout_student'%}"><i class="bi bi-door-open fa-fw me-2"></i>{% trans 'Logout'%}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-9">
+				<div class="card bg-transparent border rounded-3">
+					<div class="card-body" style="border: 1px solid #24292d; border-radius: 5px;">
+						<div class="table-responsive border-0">
+							<table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+								<tbody>
+                                {% if response_native or course %}
+                                {% if response_native %}
+                                {% for rs in response_native %}
+                                    <tr>
+										<td>
+											<div class="d-flex align-items-center">
+												<div class="w-100px">
+													<img src="{{ rs.course.image.url }}" class="rounded img-fluid" loading="lazy" alt="">
+												</div>
+												<div class="mb-0 ms-2" style="padding-left: 20px;">
+													<h6>
+                                                        {% if rs.total_score < 50 %}
+                                                            <a href="#" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="{{ rs.create_at | date:"d.m.Y" }} / {{ rs.create_at | time:"H:i:s" }}">{{ rs.course.title }}</a> <i class="bi bi-patch-exclamation me-1" style="color: red; padding-left: 3px;"></i>
+                                                        {% endif %}
+                                                        {% if rs.total_score >= 50 %}
+                                                            <a href="#" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="{{ rs.create_at | date:"d.m.Y" }}">{{ rs.course.title }}</a> <i class="bi bi-patch-check me-1" style="color: #0a53be; padding-left: 3px;"></i>
+                                                        {% endif %}
+                                                    </h6>
+													<div class="overflow-hidden">
+                                                        <h6 class="mb-0 text-end" id="native-float">{{ rs.total_score }}</h6>
+														<div class="progress progress-sm bg-primary bg-opacity-10">
+															<div class="example-progress progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" aria-valuenow="{{ rs.total_score }}" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</td>
+										<td></td>
+										<td></td>
+										<td class="text-end">
+                                            <a href="{% url 'ready_to_test' rs.course.code %}"><button class="btn btn-sm me-1 mb-1 mb-x;-0" style="background-color: #321c69; color: white;"><i class="bi bi-check me-1"></i>{% trans "Complete"%}</button></a>
+										</td>
+									</tr>
+                                {% endfor %}
+                                {% endif %}
+                                {% if course %}
+                                {% for item in course %}
+									<tr>
+										<td>
+											<div class="d-flex align-items-center">
+												<div class="w-100px">
+													<img src="{{ item.image.url }}" class="rounded img-fluid" loading="lazy" alt="">
+												</div>
+												<div class="mb-0 ms-2" style="padding-left: 20px;">
+													<h6><a href="#">{{ item.title }}</a></h6>
+												</div>
+											</div>
+										</td>
+										<td></td>
+										<td></td>
+										<td class="text-end">
+											<a href="{% url 'course_detail' item.code %}"><button class="btn btn-sm me-1 mb-1 mb-x;-0" style="background-color: #170f2f; color: white;"><i class="bi bi-arrow-bar-right me-1"></i>{% trans "Continue"%}</button></a>
+										</td>
+									</tr>
+                                {% endfor %}
+                                {% endif %}
+                                {% else %}
+                                    <div style="background-color: white;">
+                                        <img class="img-fluid" src="{% static 'account/document/document-5.gif'%}" loading="lazy" style="width: 100%; height: 485px; object-fit: contain;">
+                                    </div>
+                                {% endif %}
+								</tbody>
+							</table>
+						</div>
+                        {% include 'pagination.html' with page=course %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</section>
+</main>
+<div class="card shadow" style="border-radius: 0; background-color: #170f2f;">
+    <div class="ml-3 mt-2 d-flex justify-content-end" style="padding-right: 20px; height: 35px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="18" viewBox="0 0 54 14">
+            <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+            </g>
+        </svg>
+    </div>
+</div>
+<style>
+    @media only screen and (max-width: 1200px) {
+       .col-xl-9 {
+          padding-top: 20px;
+       }
+    }
+    .popover-body{
+        background-color: #170f2f;
+        color: white;
+        border-radius: 5px;
+    }
+    .popover .popover-arrow::before, .popover .popover-arrow::after {
+    border-color: #170f2f !important;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{% static 'account/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js'%}"></script>
+<script src="{% static 'account/assets/vendor/choices/js/choices.min.js'%}"></script>
+<script src="{% static 'account/assets/vendor/purecounterjs/dist/purecounter_vanilla.js'%}"></script>
+<script src="{% static 'account/assets/vendor/aos/aos.js'%}"></script>
+<script src="{% static 'account/assets/js/functions.js'%}"></script>
+<script src="{% static 'account/document/year_and_time.js'%}"></script>
+<script>
+    const objectsTime = [{% if course %}{% for time in course %}'{{ time.time|time:"H:i:s"  }}',{% endfor %}{% endif %}];
+    function formatTimeValue(value) {
+        return value < 10 ? '0' + value : value;
+    }
+    function checkAndReload() {
+        var currentTime = new Date();
+        var hours = formatTimeValue(currentTime.getHours());
+        var minutes = formatTimeValue(currentTime.getMinutes());
+        var seconds = formatTimeValue(currentTime.getSeconds()) - 3;
+        var currentTimeStr = hours + ':' + minutes + ':' + seconds;
+        if (objectsTime.includes(currentTimeStr)) {
+            window.location.reload();
+        }
+    }
+    setInterval(checkAndReload, 1000);
+</script>
+<script>
+    $(document).ready(function () {
+        if ('.example-progress') {
+            $('.example-progress').each(function () {
+                var originalText = $(this).closest('.overflow-hidden').find('#native-float').text();
+                var formattedText = originalText.replace(',', '.');
+                $(this).css('width', formattedText + '%');
+            });
+        }
+    });
+</script>
+</body>
+</html>
+{% endif %}
+{% if info.status == 'Close' %}
+{% include 'coming-son.html'%}
+{% endif %}
+{% endfor %}
+{% endif %}

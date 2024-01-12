@@ -1,0 +1,231 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-12 14:02+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: home/templates/Authenticate/login-dark.html:47
+#: home/templates/Authenticate/register_students.html:50
+#: home/templates/student_update.html:96
+msgid "Username"
+msgstr "Foydalanuvchi nomi"
+
+#: home/templates/Authenticate/login-dark.html:51
+#: home/templates/Authenticate/register_students.html:74
+msgid "Password"
+msgstr "Parol"
+
+#: home/templates/Authenticate/login-dark.html:56
+msgid "Not registred yet ?"
+msgstr "Hali ro'yxatdan o'tmaganmisiz"
+
+#: home/templates/Authenticate/login-dark.html:59
+#: home/templates/Authenticate/register_students.html:86
+#: home/templates/verify.html:64
+msgid "Forgot your password ?"
+msgstr "Parolingiz esdan chiqdimi"
+
+#: home/templates/Authenticate/login-dark.html:63
+msgid "Login"
+msgstr "Kirish"
+
+#: home/templates/Authenticate/password_reset_complete.html:42
+#: home/templates/Authenticate/password_reset_done.html:42
+msgid "Well done!"
+msgstr "Ajoib !"
+
+#: home/templates/Authenticate/password_reset_complete.html:43
+msgid "Your password has been changed! You can log in again"
+msgstr "Parolingiz o'zgartirildi! Siz yana tizimga kirishingiz mumkin !"
+
+#: home/templates/Authenticate/password_reset_complete.html:46
+#: home/templates/Authenticate/password_reset_done.html:46
+msgid "send me back"
+msgstr "Ortga qaytish"
+
+#: home/templates/Authenticate/password_reset_confirm.html:47
+#: home/templates/Authenticate/password_reset_form.html:47
+#: home/templates/course_detail.html:72 home/templates/verify.html:66
+msgid "Submit"
+msgstr "Tasdiqlash"
+
+#: home/templates/Authenticate/password_reset_done.html:43
+msgid "If you have an email, a password reset link has been sent to your email"
+msgstr ""
+"Agar sizda elektron pochta bo'lsa, parolni tiklash havolasi elektron "
+"pochtangizga yuborildi !"
+
+#: home/templates/Authenticate/register_students.html:56
+#: home/templates/student_update.html:104
+msgid "Email"
+msgstr "Elektron pochta"
+
+#: home/templates/Authenticate/register_students.html:62
+#: home/templates/student_update.html:108
+msgid "Group"
+msgstr "Guruh"
+
+#: home/templates/Authenticate/register_students.html:68
+#: home/templates/student_update.html:100
+msgid "Full Name"
+msgstr "F.I.SH"
+
+#: home/templates/Authenticate/register_students.html:80
+#: home/templates/change_password.html:102
+msgid "Confirm Password"
+msgstr "Parolni tasdiqlash"
+
+#: home/templates/Authenticate/register_students.html:89
+msgid "Sign up"
+msgstr "Ro'yxatdan o'tish"
+
+#: home/templates/Authenticate/register_students.html:162
+msgid "A user with that username already exists"
+msgstr "Bunday foydalanuvchi nomi allaqachon mavjud !"
+
+#: home/templates/Authenticate/register_students.html:165
+msgid "An user with this email already exists !"
+msgstr "Bu emailga ega foydalanuvchi allaqachon mavjud !"
+
+#: home/templates/change_password.html:42
+#: home/templates/student-dashboard.html:44
+#: home/templates/student_update.html:44
+msgid "Year"
+msgstr "Yil"
+
+#: home/templates/change_password.html:47
+#: home/templates/student-dashboard.html:49
+#: home/templates/student_update.html:49
+msgid "Month"
+msgstr "Oy"
+
+#: home/templates/change_password.html:52
+#: home/templates/student-dashboard.html:54
+#: home/templates/student_update.html:54
+msgid "Day"
+msgstr "Kun"
+
+#: home/templates/change_password.html:60
+#: home/templates/student-dashboard.html:62
+#: home/templates/student_update.html:62
+msgid "Language"
+msgstr "Til Tanlash"
+
+#: home/templates/change_password.html:79
+#: home/templates/student-dashboard.html:81
+#: home/templates/student_update.html:81
+msgid "Dashboard"
+msgstr "Boshqaruv paneli"
+
+#: home/templates/change_password.html:80
+#: home/templates/student-dashboard.html:82
+#: home/templates/student_update.html:82
+msgid "Update"
+msgstr "Yangilash"
+
+#: home/templates/change_password.html:81
+#: home/templates/student-dashboard.html:83
+#: home/templates/student_update.html:83
+msgid "Change-Password"
+msgstr "Parolni o'zgartirish"
+
+#: home/templates/change_password.html:82
+#: home/templates/student-dashboard.html:84
+#: home/templates/student_update.html:84
+msgid "Logout"
+msgstr "Chiqish"
+
+#: home/templates/change_password.html:94
+msgid "Old Password"
+msgstr "Eski parol"
+
+#: home/templates/change_password.html:98
+msgid "New Password"
+msgstr "Yangi parol"
+
+#: home/templates/change_password.html:106
+#: home/templates/student_update.html:112
+msgid "Save changes"
+msgstr "Tasdiqlash"
+
+#: home/templates/coming-son.html:23
+msgid "WE ARE COMING SOON !!!"
+msgstr "Tez orada ish yakunlanadi !!!"
+
+#: home/templates/coming-son.html:24
+msgid "The Website is Under Construction"
+msgstr "Veb-sayt qayta ishga tushirilmoqda"
+
+#: home/templates/coming-son.html:28
+msgid "Hours"
+msgstr "Soat"
+
+#: home/templates/coming-son.html:32
+msgid "Minutes"
+msgstr "Minut"
+
+#: home/templates/coming-son.html:36
+msgid "Secunds"
+msgstr "Sekund"
+
+#: home/templates/coming-son.html:40
+msgid "We are working on fixing the problem. We back soon"
+msgstr "Muammoni hal qilish ustida ishlayapmiz. Tez orada qaytamiz"
+
+#: home/templates/course_detail.html:41
+msgid "Answer all questions on time"
+msgstr "Barcha savollarga o'z vaqtida javob bering"
+
+#: home/templates/course_detail.html:42
+msgid "Total questions"
+msgstr "umumiy savollar"
+
+#: home/templates/course_detail.html:42
+msgid "End Time"
+msgstr "tugash vaqti"
+
+#: home/templates/course_detail.html:42
+msgid "Current Time"
+msgstr "joriy vaqt"
+
+#: home/templates/error/outside.html:27
+msgid "Oh No! Error 404"
+msgstr "Xatolik 404"
+
+#: home/templates/error/outside.html:28
+msgid "This page you requested counld not found. May the force be with you!"
+msgstr "Saxifa topilmadi o'chirib yuborilgan yoki bunday ma'lumot Yo'q"
+
+#: home/templates/student-dashboard.html:126
+msgid "Complete"
+msgstr "Bajarildi"
+
+#: home/templates/student-dashboard.html:147
+msgid "Continue"
+msgstr "Davom etish"
+
+#: home/templates/verify.html:49
+msgid "Please enter the one time password to verify your account"
+msgstr "Hisobingizni tasdiqlash uchun bir martalik parolni kiriting"
+
+#: home/templates/verify.html:50
+msgid "A code has been sent to"
+msgstr "Kod yuborildi"
+
+#~ msgid ""
+#~ "Solve all the questions in time, questions and the points given to it"
+#~ msgstr "Barcha savollarni o'z vaqtida javob bering"

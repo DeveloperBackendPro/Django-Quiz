@@ -1,0 +1,115 @@
+{% load static %}
+{% load i18n %}
+{% if info %}
+{% for info in info %}
+{% if info.status == 'Open' %}
+<!doctype html>
+<html class="no-js is_dark" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{% static 'account/assets/images/favicon.ico'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/animate.min.css'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/aos.min.css'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/icofont.min.css'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/slick.css'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/swiper-bundle.min.css'%}">
+    <link rel="stylesheet" href="{% static 'Temp/css/style.css'%}">
+    <title>Online Quiz</title>
+</head>
+<body class="body__wrapper">
+    <div class="card shadow" style="border-radius: 0; background-color: #170f2f">
+        <div class="ml-3 mt-2" style="padding-left: 20px; height: 35px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="18" viewBox="0 0 54 14">
+                <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                    <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                    <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                    <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <main class="main_wrapper overflow-hidden">
+        <div class="loginarea sp_top_100 sp_bottom_100">
+            <div class="container">
+                <div class="row">
+                    <div class="tab-content tab__content__wrapper" id="myTabContent" data-aos="fade-up">
+                        <div class="tab-pane fade active show" id="projects__one" role="tabpanel" aria-labelledby="projects__one">
+                            <div class="col-xl-6 col-md-6 offset-md-3">
+                                <div class="loginarea__wraper">
+                                    <form autocomplete="off" method="post">
+                                        {% csrf_token %}
+                                        <div class="login__form">
+                                            <label class="form__label">{% trans 'Username'%}</label>
+                                            <input class="common__login__input" type="text" name="username" autocomplete="off" placeholder="Ravshan">
+                                        </div>
+                                        <div class="login__form">
+                                            <label class="form__label">{% trans 'Password'%}</label>
+                                            <input class="common__login__input" type="password" name="password" autocomplete="off" placeholder="**********">
+                                        </div>
+                                        <div class="login__form d-flex justify-content-between flex-wrap gap-2">
+                                            <div class="form__check login__form__link">
+                                                <a href="{% url 'register'%}">{% trans "Not registred yet ?"%}</a>
+                                            </div>
+                                            <div class="text-end login__form__link">
+                                                <a href="{% url 'password_reset'%}">{% trans "Forgot your password ?"%}</a>
+                                            </div>
+                                        </div>
+                                        <div class="login__button">
+                                            <button type="submit" class="default__button" href="#" style="width: 100%;">{% trans 'Login'%}</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" login__shape__img educationarea__shape_image">
+                    <img loading="lazy"  class="hero__shape hero__shape__1" src="{% static 'Temp/img/education/hero_shape2.png'%}" alt="Shape">
+                    <img loading="lazy"  class="hero__shape hero__shape__2" src="{% static 'Temp/img/education/hero_shape3.png'%}" alt="Shape">
+                    <img loading="lazy"  class="hero__shape hero__shape__3" src="{% static 'Temp/img/education/hero_shape4.png'%}" alt="Shape">
+                    <img loading="lazy"  class="hero__shape hero__shape__4" src="{% static 'Temp/img/education/hero_shape5.png'%}" alt="Shape">
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <div class="card shadow" style="border-radius: 0; background-color: #170f2f;">
+        <div class="ml-3 mt-2 d-flex justify-content-end" style="padding-right: 20px; height: 35px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="18" viewBox="0 0 54 14">
+                <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+                    <circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle>
+                    <circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle>
+                    <circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <script src="{% static 'Temp/js/vendor/modernizr-3.5.0.min.js'%}"></script>
+    <script src="{% static 'Temp/js/vendor/jquery-3.6.0.min.js'%}"></script>
+    <script src="{% static 'Temp/js/popper.min.js'%}"></script>
+    <script src="{% static 'Temp/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'Temp/js/isotope.pkgd.min.js'%}"></script>
+    <script src="{% static 'Temp/js/slick.min.js'%}"></script>
+    <script src="{% static 'Temp/js/jquery.meanmenu.min.js'%}"></script>
+    <script src="{% static 'Temp/js/ajax-form.js'%}"></script>
+    <script src="{% static 'Temp/js/wow.min.js'%}"></script>
+    <script src="{% static 'Temp/js/jquery.scrollUp.min.js'%}"></script>
+    <script src="{% static 'Temp/js/imagesloaded.pkgd.min.js'%}"></script>
+    <script src="{% static 'Temp/js/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{% static 'Temp/js/waypoints.min.js'%}"></script>
+    <script src="{% static 'Temp/js/jquery.counterup.min.js'%}"></script>
+    <script src="{% static 'Temp/js/plugins.js'%}"></script>
+    <script src="{% static 'Temp/js/swiper-bundle.min.js'%}"></script>
+    <script src="{% static 'Temp/js/main.js'%}"></script>
+</body>
+</html>
+{% endif %}
+{% if info.status == 'Close' %}
+{% include 'coming-son.html'%}
+{% endif %}
+{% endfor %}
+{% endif %}
