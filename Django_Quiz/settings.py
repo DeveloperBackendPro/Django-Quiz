@@ -11,7 +11,7 @@ SECRET_KEY = 'django-insecure-8rubnrpy8^dzs(ijet0h^@4v9lmqaq*ilgsq*%p+qz0w07j#u4
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['.pythonanywhere.com']
+ALLOWED_HOSTS = ['DeveloperBackendPro.pythonanywhere.com']
 
 INSTALLED_APPS = [
     'modeltranslation',
