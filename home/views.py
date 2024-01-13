@@ -25,6 +25,7 @@ class register(CreateView):
         valid = super().form_valid(form)
         login(self.request, self.object)
         return valid
+        
 def login_form(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -102,6 +103,7 @@ def password(request):
             'form': form,
         }
         return render(request, 'change_password.html', context)
+        
 def logout_student(request):
     logout(request)
     return redirect('login_form')
